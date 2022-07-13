@@ -33,8 +33,8 @@ public class SpeakerTest {
     public void testSaveAndGetAndDelete() throws Exception {
         Speaker s = new Speaker();
         s.setCompany("Pluralsight");
-        s.setFirstName("Dan");
-        s.setLastName("Bunker");
+        s.setFirstName("Mert");
+        s.setLastName("Kiziloglu");
         s.setTitle("Author");
         s.setSpeakerBio("Consulting and mentoring");
         s = repository.saveAndFlush(s);
@@ -44,7 +44,7 @@ public class SpeakerTest {
         entityManager.clear();
 
         Speaker otherSpeaker = repository.getOne(s.getSpeakerId());
-        assertEquals("Dan", otherSpeaker.getFirstName());
+        assertEquals("Mert", otherSpeaker.getFirstName());
 
         repository.deleteById(otherSpeaker.getSpeakerId());
     }

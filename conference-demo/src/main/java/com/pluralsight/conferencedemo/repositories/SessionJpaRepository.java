@@ -15,6 +15,7 @@ public interface SessionJpaRepository extends JpaRepository<Session, Long>, Sess
     List<Session> findBySessionLengthNot(Integer sessionLength);
     List<Session> findBySessionLengthLessThan(Integer sessionLength);
 
-    @Query("select s from Session s where s.sessionName like %:name")
-    Page<Session> getSessionsWithName(@Param("name") String name, Pageable pageable);
+    @Query(value = "select s from Session s where s.sessionName like %:name")
+    Page<Session> getSessionsWithName(@Param("name") String name,
+                                      Pageable pageable);
 }

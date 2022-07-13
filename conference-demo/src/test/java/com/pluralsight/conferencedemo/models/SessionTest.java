@@ -49,6 +49,7 @@ public class SessionTest {
     @Test
     public void testPagingSorting() throws Exception {
         Page<Session> page = jpaRepository.getSessionsWithName("S", PageRequest.of(1, 5, Sort.by(Sort.Direction.DESC, "sessionLength")));
+        System.out.println(page.getContent());
         assertTrue(page.getTotalElements() > 0);
     }
 
